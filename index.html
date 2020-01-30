@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nanti Kita Cerita tentang Hari Ini</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<style>
+		* {
+			word-wrap: break-word;
+		}
+
+		@font-face {
+			font-family: nkcthi;
+			src: url('font/AlaNkcthi.otf');
+		}
+
+		h1 {
+			font-family: nkcthi;
+		}
+
+		.navbar-fixed-bottom .table {
+			margin-bottom: 0;
+		}
+
+		.navbar-fixed-bottom .table,
+		.navbar-fixed-bottom td {
+			border: none !important;
+		}
+
+		.hapus {
+			cursor: pointer;
+    		user-select: none;
+		}
+
+		body {
+			padding-bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="hasil"></h1>
+	</div>
+	<div class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container">
+			<table class="table table-bordered">
+				<tr>
+					<td>
+						<div class="input-group">
+							<input type="text" class="form-control input">
+							<div class="input-group-addon hapus">&times;</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script>
+		$('.hapus').each(function(){
+			$(this).click(function(){
+				$(this).parent().find('.form-control').val('')
+				$('.hasil').html('')
+			})
+		})
+
+		$('.input').on('keyup', () => $('.hasil').html($('.input').val()))
+	</script>
+</body>
+</html>
